@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  get '/' => 'home#index'
+  root to: 'articles#index'
 end

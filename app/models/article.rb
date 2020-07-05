@@ -21,5 +21,7 @@ class Article < ApplicationRecord
         I18n.l(self.created_at, format: :default)
     end
 
+    has_many :comments, dependent: :destroy
     belongs_to :user
+    
 end

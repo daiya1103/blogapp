@@ -21,7 +21,13 @@ class Article < ApplicationRecord
         I18n.l(self.created_at, format: :default)
     end
 
+    def like_count
+        likes.count
+    end
+
     has_many :comments, dependent: :destroy
+    has_many :likes
     belongs_to :user
+    has_one_attached :eyecatch
     
 end

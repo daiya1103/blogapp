@@ -3,7 +3,6 @@
 # Table name: articles
 #
 #  id         :bigint           not null, primary key
-#  content    :text             not null
 #  title      :string           not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
@@ -15,7 +14,6 @@
 #
 class Article < ApplicationRecord
     validates :title, presence: true
-    validates :content, presence: true
 
     def display_created_at
         I18n.l(self.created_at, format: :default)
@@ -29,5 +27,6 @@ class Article < ApplicationRecord
     has_many :likes
     belongs_to :user
     has_one_attached :eyecatch
+    has_rich_text :content
     
 end

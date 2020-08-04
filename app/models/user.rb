@@ -43,19 +43,6 @@ class User < ApplicationRecord
     profile || build_profile
   end
 
-  def disp_name
-    # ぼっち演算子
-    profile&.nickname || self.email.split('@').first
-  end
-
-  def avatar_image
-    if profile&.avatar&.attached?
-      profile.avatar
-    else
-      'default-avatar.png'
-    end
-  end
-
   def has_liked?(article)
     likes.exists?(article_id: article.id)
   end
@@ -84,4 +71,3 @@ class User < ApplicationRecord
     end
   end
 end
-
